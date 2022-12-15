@@ -5,9 +5,13 @@ using UnityEngine;
 public class PlayerControllerV1 : MonoBehaviour
 {
     public LayerMask ground;
+    public AudioClip deathclip;
+    public AudioClip foodclip;
     public float speed;
+    public float addGrav;
     private Rigidbody2D rb;
 
+    public GameManager gm;
     float xMove;
     float yMove;
 
@@ -35,8 +39,16 @@ public class PlayerControllerV1 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Death")
         {
+            gm.PlaySound(deathclip);
             Destroy(GameObject.FindWithTag("Player"));
             
+        }
+
+        if (collision.gameObject.tag == "Food")
+        {
+            rb.gravityScale += addGrav;
+            gm.PlaySound(foodclip);
+            Destroy(collision.gameObject);
         }
     }
 
