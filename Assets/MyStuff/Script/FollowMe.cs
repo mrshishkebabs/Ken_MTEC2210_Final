@@ -16,5 +16,6 @@ public class FollowMe : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(transform.position.x, player.transform.position.y+2, transform.position.z);
+
     }
 }
