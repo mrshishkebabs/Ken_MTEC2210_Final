@@ -1873,14 +1873,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a77c9db6ccbddc4cb52803a3b80db5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ground:
-    serializedVersion: 2
-    m_Bits: 0
-  deathclip: {fileID: 8300000, guid: cae452c70ef874c458ed69086588d075, type: 3}
-  foodclip: {fileID: 8300000, guid: 0feb3d28e364e2d48adb4a7f6f6af6ff, type: 3}
-  speed: 140
-  addGrav: 2
   gm: {fileID: 1463126084}
+  DeathClip: {fileID: 8300000, guid: cae452c70ef874c458ed69086588d075, type: 3}
+  FoodClip: {fileID: 8300000, guid: 0feb3d28e364e2d48adb4a7f6f6af6ff, type: 3}
+  Speed: 140
+  AddGravity: 2
 --- !u!1 &1261729224
 GameObject:
   m_ObjectHideFlags: 0
