@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class PlayerControllerV1 : MonoBehaviour
 {
-    public LayerMask ground;
-    public AudioClip deathclip;
-    public AudioClip foodclip;
-    public float speed;
-    public float addGrav;
+    public GameManager gm;
+    public AudioClip DeathClip;
+    public AudioClip FoodClip;
+    public float Speed;
+    public float AddGravity;
     private Rigidbody2D rb;
 
-    public GameManager gm;
+
     float xMove;
     float yMove;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         xMove = Input.GetAxisRaw("Horizontal");
@@ -31,23 +29,23 @@ public class PlayerControllerV1 : MonoBehaviour
     private void FixedUpdate()
     {
 
-        rb.velocity = new Vector2(xMove * speed * Time.deltaTime, rb.velocity.y);
-        rb.velocity = new Vector2(rb.velocity.x, yMove * speed * Time.deltaTime);
+        rb.velocity = new Vector2(xMove * Speed * Time.deltaTime, rb.velocity.y);
+        rb.velocity = new Vector2(rb.velocity.x, yMove * Speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Death")
         {
-            gm.PlaySound(deathclip);
+            gm.PlaySound(DeathClip);
             Destroy(GameObject.FindWithTag("Player"));
             
         }
 
         if (collision.gameObject.tag == "Food")
         {
-            rb.gravityScale += addGrav;
-            gm.PlaySound(foodclip);
+            rb.gravityScale += AddGravity;
+            gm.PlaySound(FoodClip);
             Destroy(collision.gameObject);
         }
     }

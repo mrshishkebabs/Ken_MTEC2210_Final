@@ -14,15 +14,9 @@ public class GameManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
 
-        InvokeRepeating("SpawnItem", 0, 1); //how long to wait, how long it happen afterwards
+        InvokeRepeating("SpawnItem", 0, 1);
 
     }
-
-    void Update()
-    {
-//        scoreText.text = "Score: " + score.ToString();
-    }
-
 
     public void SpawnItem()
     {
